@@ -52,23 +52,23 @@ export const expenseAPI = {
     if (filters.payment_method) params.append('payment_method', filters.payment_method);
     if (filters.skip !== undefined) params.append('skip', filters.skip);
     if (filters.limit !== undefined) params.append('limit', filters.limit);
-    return api.get(`/expenses?${params.toString()}`);
+    return api.get(`/expenses/?${params.toString()}`);
   },
-  create: (data) => api.post('/expenses', data),
+  create: (data) => api.post('/expenses/', data),
   update: (id, data) => api.put(`/expenses/${id}`, data),
   delete: (id) => api.delete(`/expenses/${id}`),
 };
 
 // Category API
 export const categoryAPI = {
-  getAll: () => api.get('/categories'),
-  create: (data) => api.post('/categories', data),
+  getAll: () => api.get('/categories/'),
+  create: (data) => api.post('/categories/', data),
 };
 
 // Budget API
 export const budgetAPI = {
-  getAll: () => api.get('/budgets'),
-  create: (data) => api.post('/budgets', data),
+  getAll: () => api.get('/budgets/'),
+  create: (data) => api.post('/budgets/', data),
   update: (id, data) => api.put(`/budgets/${id}`, data),
   delete: (id) => api.delete(`/budgets/${id}`),
 };
